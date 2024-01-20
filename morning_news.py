@@ -36,7 +36,7 @@ class MorningNews(Plugin):
     def get_morning_news(self) -> str:
         token = self.config.get("token")
         url = "https://v2.alapi.cn/api/zaobao"
-        payload = f"token={AOmWKwoZb051KVK5}&format=json"
+        payload = f"token={token}&format=json"
         headers = {'Content-Type': "application/x-www-form-urlencoded"}
 
         try:
