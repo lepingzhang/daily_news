@@ -1,3 +1,3 @@
-from .weather import Weather
+from .morning_news import MorningNews
 
-__all__ = ["morning_news"]
+__all__ = ["MorningNews"]
