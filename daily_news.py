@@ -14,7 +14,8 @@ class DailyNews(Plugin):
 
     def will_generate_reply(self, event: Event):
         query = event.message.content.strip()
-        if query == self.config.get("command"):
+        commands = self.config.get("command", [])
+        if any(cmd in query for cmd in commands):
             replies = self.get_daily_news()
             if isinstance(replies, list):
                 for reply in replies:
