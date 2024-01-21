@@ -1,3 +1,3 @@
-from .daily_news import daily_news
+from .daily_news import DailyNews
 
-__all__ = ["daily_news"]
+__all__ = ["DailyNews"]
