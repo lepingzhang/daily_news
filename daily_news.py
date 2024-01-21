@@ -15,7 +15,11 @@ class DailyNews(Plugin):
         scheduler_thread.start()
 
     def did_receive_message(self, event: Event):
-        pass
+        # 当收到特定命令时发送早报
+        command = self.config.get("command")
+        if event.message == command:
+            content = self.get_daily_news()
+            send_txt(content, event.sender_id)
 
     def will_generate_reply(self, event: Event):
         pass
@@ -52,7 +56,7 @@ class DailyNews(Plugin):
             token = self.config.get("token")  # 从配置中动态获取token
             payload = f"token={token}&format=json"
             headers = {'Content-Type': "application/x-www-form-urlencoded"}
-    
+
             response = requests.request("POST", url, data=payload, headers=headers)
             if response.status_code == 200:
                 data = response.json()
@@ -64,4 +68,3 @@ class DailyNews(Plugin):
             logger.error(f"Get daily news error: {e}")
             text = f"获取早报失败: {e}"
         return text
-
