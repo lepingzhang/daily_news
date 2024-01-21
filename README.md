@@ -30,3 +30,6 @@
   }
 ]
 ```
+
+### 3. 获取早报API
+在[此处](https://alapi.cn/api/view/93)获取`token`
