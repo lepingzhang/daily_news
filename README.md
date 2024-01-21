@@ -1,4 +1,4 @@
-# wechat-gptbot关键字回复插件
+# wechat-gptbot每日早报插件
 
 本项目作为 `wechat-gptbot` 插件，可以根据关键字回复对应的信息。
 
@@ -23,10 +23,10 @@
     "name": "daily_news",
     "schedule_time": "08:00",
     "command": ["早报", "新闻", "今天有什么新闻"],
-    "single_chat_list": ["wxid_dierxe23232kye67"], 
-    "group_chat_list": ["8393042746@chatroom"],
+    "single_chat_list": ["wxid_***"], 
+    "group_chat_list": ["***@chatroom"],
     "token": "your_token_here",
-    "reply_mode": "both"
+    "reply_mode": "both" #text仅文本、image仅图片、both文本+图片
   }
 ]
 ```
