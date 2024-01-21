@@ -28,6 +28,7 @@ class DailyNews(Plugin):
         return "使用命令 #早报 (或者您在配置中设置的任何命令) 来获取每日早报"
 
     def get_daily_news(self) -> Reply:
+        reply_mode = self.config.get("reply_mode", "both")
         reply = Reply(ReplyType.TEXT, "获取早报失败，请稍后再试")
         try:
             token = self.config.get("token")  # 从配置中动态获取token
@@ -42,7 +43,15 @@ class DailyNews(Plugin):
                 image = data['image']
                 head_image = data['head_image']
                 date = data['date']
-                formatted_news = f"【今日早报】{date}\n" + "\n".join(news_list) + f"\n\n微语：{weiyu}\n\n早报头图：{head_image}\n早报图片：{image}"
+
+                formatted_news = f"【今日早报】{date}\n"
+
+                if reply_mode == "text" or reply_mode == "both":
+                    formatted_news += "\n".join(news_list) + f"\n\n微语：{weiyu}\n\n早报头图：{head_image}\n"
+
+                if reply_mode == "image" or reply_mode == "both":
+                    formatted_news += f"早报图片：{image}"
+
                 reply = Reply(ReplyType.TEXT, formatted_news)
             else:
                 logger.error(f"Failed to fetch daily news: {response.text}")
