@@ -49,13 +49,14 @@ class DailyNews(Plugin):
     def get_daily_news(self) -> str:
         try:
             url = "https://v2.alapi.cn/api/zaobao"
-            payload = "token=AOmWKwoZb051KVK5&format=json"
+            token = self.config.get("token")  # 从配置中动态获取token
+            payload = f"token={token}&format=json"
             headers = {'Content-Type': "application/x-www-form-urlencoded"}
-
+    
             response = requests.request("POST", url, data=payload, headers=headers)
             if response.status_code == 200:
                 data = response.json()
-                # 这里需要根据早报的数据结构来格式化消息文本
+                # 根据早报的数据结构来格式化消息文本
                 text = f"今日早报:\n{data['content']}"  # 假设早报内容在返回数据的'content'字段中
             else:
                 text = "获取早报失败, 请稍后再试"
@@ -63,3 +64,4 @@ class DailyNews(Plugin):
             logger.error(f"Get daily news error: {e}")
             text = f"获取早报失败: {e}"
         return text
+
