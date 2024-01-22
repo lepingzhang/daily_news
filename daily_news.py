@@ -40,7 +40,7 @@ class DailyNews(Plugin):
             event.bypass()
 
     def start_schedule(self):
-        schedule_time = self.config.get("schedule_time", "09:00")
+        schedule_time = self.config.get("schedule_time", "08:00")
         schedule.every().day.at(schedule_time).do(self.daily_push)
         while True:
             schedule.run_pending()
