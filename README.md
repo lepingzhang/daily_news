@@ -34,5 +34,5 @@
 ### 3. 获取早报API
 在[这里](https://alapi.cn/api/view/93)获取`token`
 
-### 感谢
+## 感谢
 参考了[plugin_weather](https://github.com/iuiaoin/plugin_weather)以及[plugin_dailynews](https://github.com/goxofy/plugin_dailynews)
