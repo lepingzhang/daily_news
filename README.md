@@ -26,7 +26,7 @@
     "single_chat_list": ["wxid_***"], 
     "group_chat_list": ["***@chatroom"],
     "token": "your_token_here",
-    "reply_mode": "both" #text仅文本、image仅图片、both文本+图片
+    "reply_mode": "text" #text仅文本、image仅图片、both文本+图片
   }
 ]
 ```
