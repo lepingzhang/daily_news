@@ -22,7 +22,7 @@
   {
     "name": "daily_news",
     "schedule_time": "08:00",
-    "command": ["早报", "新闻", "今天有什么新闻"],
+    "command": ["早报", "今天有什么新闻"],
     "single_chat_list": ["wxid_***"], 
     "group_chat_list": ["***@chatroom"],
     "token": "your_token_here",
