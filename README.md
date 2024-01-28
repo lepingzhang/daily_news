@@ -8,7 +8,7 @@
 在 `plugins/source.json` 文件中添加以下配置：
 ```
 {
-  "keyword_reply": {
+  "daily_news": {
     "repo": "https://github.com/lepingzhang/daily_news.git",
     "desc": "每日早报"
   }
